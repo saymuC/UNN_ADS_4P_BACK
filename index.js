@@ -1,21 +1,10 @@
 require('dotenv').config()
-
 const express = require ('express');
-const path = require('path');
+const general = require('./routes/general.routes');
 const app = express();
 //const PORT = 3000;
 
-app.get ('/mussum', (req, res) => {
-    res.sendFile(path.resolve('algo.html'))
-})
-
-app.get ('/', (req, res) => {
-    res.send ('Hello World')
-})
-
-app.get ('/oi', (req, res) => {
-    res.send ('oi')
-})
+app.use ('/general', general);
 
 // são os ultimos !!!!!
 app.use((req, res, next) => {
